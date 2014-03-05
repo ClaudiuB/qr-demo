@@ -197,4 +197,28 @@
             android:text="@string/msg_default_status"
             android:textColor="@color/status_text"/>
 
+  <Button
+      android:id="@+id/button1"
+      style="?android:attr/buttonStyleSmall"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:text="Button B" />
+
+  <Button
+      android:id="@+id/button2"
+      style="?android:attr/buttonStyleSmall"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="left"
+      android:text="Button A" />
+
+  <Button
+      android:id="@+id/button3"
+      style="?android:attr/buttonStyleSmall"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      android:text="Button C" />
+
 </merge>
