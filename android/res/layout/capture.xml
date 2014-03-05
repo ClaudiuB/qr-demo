@@ -221,22 +221,43 @@
             android:layout_weight="1" >
 
             <TableRow
+                android:id="@+id/TableRow04"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="3"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" >
+
+                    <requestFocus />
+                </EditText>
+
+            </TableRow>
+
+            <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/button1"
+                    android:layout_weight="1"
                     android:text="Button A" />
 
                 <Button
                     android:id="@+id/button2"
+                    android:layout_weight="1"
                     android:text="Button B" />
 
                 <Button
                     android:id="@+id/button3"
+                    android:layout_weight="1"
                     android:text="Button C" />
-
             </TableRow>
 
             <TableRow
@@ -246,14 +267,17 @@
 
                 <Button
                     android:id="@+id/Button01"
+                    android:layout_weight="1"
                     android:text="Button A" />
 
                 <Button
                     android:id="@+id/Button02"
+                    android:layout_weight="1"
                     android:text="Button B" />
 
                 <Button
                     android:id="@+id/Button03"
+                    android:layout_weight="1"
                     android:text="Button C" />
             </TableRow>
 
@@ -265,18 +289,41 @@
                 <Button
                     android:id="@+id/Button05"
                     android:layout_width="fill_parent"
+                    android:layout_weight="1"
                     android:text="Button A" />
 
                 <Button
                     android:id="@+id/Button06"
                     android:layout_width="fill_parent"
+                    android:layout_weight="1"
                     android:text="Button B" />
 
                 <Button
                     android:id="@+id/Button04"
                     android:layout_width="fill_parent"
+                    android:layout_weight="1"
                     android:text="Button C" />
+            </TableRow>
 
+            <TableRow
+                android:id="@+id/TableRow03"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/Button07"
+                    android:layout_weight="1"
+                    android:text="Button A" />
+
+                <Button
+                    android:id="@+id/Button08"
+                    android:layout_weight="1"
+                    android:text="Button B" />
+
+                <Button
+                    android:id="@+id/Button09"
+                    android:layout_weight="1"
+                    android:text="Button C" />
             </TableRow>
 
             <TableRow
@@ -286,15 +333,15 @@
 
                 <TextView
                     android:id="@+id/status_view"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_span="3"
+                    android:layout_weight="1"
                     android:background="@color/transparent"
                     android:text="@string/msg_default_status"
                     android:textColor="@color/status_text" />
 
             </TableRow>
-
         </TableLayout>
 
     </LinearLayout>
