@@ -16,13 +16,16 @@
 
 package com.google.zxing.client.android.camera;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
+
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.client.android.camera.open.OpenCameraInterface;
 
@@ -81,6 +84,8 @@ public final class CameraManager {
       }
       camera = theCamera;
     }
+    if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+    	theCamera.setDisplayOrientation(90);
     theCamera.setPreviewDisplay(holder);
 
     if (!initialized) {
