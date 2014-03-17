@@ -68,6 +68,7 @@ final class CameraConfigurationManager {
     Point theScreenResolution = new Point();
     display.getSize(theScreenResolution);
     screenResolution = theScreenResolution;
+    screenResolution.y /= 2;
     Log.i(TAG, "Screen resolution: " + screenResolution);
     cameraResolution = findBestPreviewSizeValue(parameters, screenResolution);
     Log.i(TAG, "Camera resolution: " + cameraResolution);
