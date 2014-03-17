@@ -17,6 +17,8 @@
 package com.google.zxing.client.android;
 
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -109,6 +111,10 @@ final class DecodeHandler extends Handler {
     int width = source.getThumbnailWidth();
     int height = source.getThumbnailHeight();
     Bitmap bitmap = Bitmap.createBitmap(pixels, 0, width, width, height, Bitmap.Config.ARGB_8888);
+    Matrix matrix = new Matrix();
+    matrix.postRotate(90);
+	bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+			bitmap.getHeight(), matrix, true);
     ByteArrayOutputStream out = new ByteArrayOutputStream();    
     bitmap.compress(Bitmap.CompressFormat.JPEG, 50, out);
     bundle.putByteArray(DecodeThread.BARCODE_BITMAP, out.toByteArray());
