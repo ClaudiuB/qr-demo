@@ -375,9 +375,18 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
    * @param scaleFactor amount by which thumbnail was scaled
    * @param barcode   A greyscale bitmap of the camera data which was decoded.
    */
-  public void handleDecode(Result rawResult, Bitmap barcode, float scaleFactor) {
+  public void handleDecode(Result rawResult, Bitmap barcode, float scaleFactor) {		
     inactivityTimer.onActivity();
     lastResult = rawResult;
+    
+	TextView textView1 = (TextView)findViewById(R.id.EditText1);
+	if (textView1.getText().length() == 0)
+	{
+		Toast.makeText(this, "Please enter a number first!", Toast.LENGTH_SHORT).show();
+	    restartPreviewAfterDelay(0);
+		return;
+	}
+    
     ResultHandler resultHandler = ResultHandlerFactory.makeResultHandler(this, rawResult);
 
     boolean fromLiveScan = barcode != null;
@@ -526,6 +535,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         button.setVisibility(View.GONE);
       }
     }
+    
+    if (handler != null)
+	    handler.postDelayed(new Runnable() {
+	        public void run() {
+	        	handler.sendEmptyMessageDelayed(R.id.restart_preview, 0);
+	        	resetStatusView();
+	        }
+	    }, 3000);
   }
 
   // Briefly show the contents of the barcode, then handle the result outside Barcode Scanner.
@@ -660,7 +677,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     resetStatusView();
   }
 
-  private void resetStatusView() {
+  public void resetStatusView() {
     resultView.setVisibility(View.GONE);
     statusView.setText(R.string.msg_default_status);
     statusView.setVisibility(View.VISIBLE);
