@@ -29,6 +29,7 @@ import com.google.zxing.misc.DecimalDigitsInputFilter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -38,6 +39,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
@@ -60,7 +62,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.util.Collection;
 import java.util.Date;
@@ -386,6 +394,22 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 	    restartPreviewAfterDelay(0);
 		return;
 	}
+	
+	String filename = "qrdemo.txt";
+	String string = "Number: " + textView1.getText() + "\r\nQR code: " + rawResult.getText() + "\r\n\r\n";
+
+	try {
+	  File root = Environment.getExternalStorageDirectory();
+      File file = new File (root, filename);
+      Log.d("test1", root + filename);
+	  FileWriter fileWriter = new FileWriter(file, true);
+	  fileWriter.append(string);
+	  fileWriter.close();
+	} catch (Exception e) {
+	  Log.d("test1", e.getMessage());
+	  e.printStackTrace();
+	}
+	Log.d("test1", "done");
     
     ResultHandler resultHandler = ResultHandlerFactory.makeResultHandler(this, rawResult);
 
