@@ -226,13 +226,15 @@
                 android:layout_height="wrap_content" >
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/EditText1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_span="3"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal|none" >
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="none" >
 
                     <requestFocus />
                 </EditText>
@@ -247,17 +249,21 @@
                 <Button
                     android:id="@+id/button1"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="1" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="2" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="3" />
+
             </TableRow>
 
             <TableRow
@@ -268,17 +274,21 @@
                 <Button
                     android:id="@+id/Button01"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="4" />
 
                 <Button
                     android:id="@+id/Button02"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="5" />
 
                 <Button
                     android:id="@+id/Button03"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="6" />
+
             </TableRow>
 
             <TableRow
@@ -290,19 +300,23 @@
                     android:id="@+id/Button05"
                     android:layout_width="fill_parent"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="7" />
 
                 <Button
                     android:id="@+id/Button06"
                     android:layout_width="fill_parent"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="8" />
 
                 <Button
                     android:id="@+id/Button04"
                     android:layout_width="fill_parent"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="9" />
+
             </TableRow>
 
             <TableRow
@@ -313,17 +327,21 @@
                 <Button
                     android:id="@+id/Button07"
                     android:layout_weight="1"
-                    android:text="," />
+                    android:onClick="numberButtonPressed"
+                    android:text="." />
 
                 <Button
                     android:id="@+id/Button08"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="0" />
 
                 <Button
                     android:id="@+id/Button09"
                     android:layout_weight="1"
+                    android:onClick="numberButtonPressed"
                     android:text="&lt;" />
+
             </TableRow>
 
             <TableRow

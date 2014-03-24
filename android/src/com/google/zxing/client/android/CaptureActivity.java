@@ -25,6 +25,7 @@ import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.client.android.result.ResultButtonListener;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
+import com.google.zxing.misc.DecimalDigitsInputFilter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -40,6 +41,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.text.InputFilter;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -52,6 +54,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -133,6 +137,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     ambientLightManager = new AmbientLightManager(this);
 
     PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+    
+    EditText editText = (EditText)findViewById(R.id.EditText1);
+    editText.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
   }
 
   @Override
@@ -663,5 +670,21 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
   public void drawViewfinder() {
     viewfinderView.drawViewfinder();
+  }
+  
+  public void numberButtonPressed(View view)
+  {
+	  Button button = (Button)view;
+	  TextView textView1 = (TextView)findViewById(R.id.EditText1);
+	  if (button.getText().charAt(0) == '<')
+	  {
+		  CharSequence text = textView1.getText();
+		  if (text.length() > 0)
+			  textView1.setText(text.subSequence(0, text.length() - 1));
+	  }
+	  else
+	  {
+		  textView1.append(button.getText());
+	  }
   }
 }
